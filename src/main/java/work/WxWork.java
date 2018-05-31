@@ -3,11 +3,10 @@ package work;
 import com.alibaba.fastjson.JSONObject;
 import config.QyAPIUrl;
 import config.QyWorkConfig;
-import model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import util.http.HttpUtil;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +16,8 @@ import java.util.Map;
  * @author xuchenguang
  * @since 2018.05.29
  */
-public class WxWork {
+public class WxWork extends WxBase {
+
 
     /**
      * 获取access_token
@@ -28,14 +28,15 @@ public class WxWork {
      */
     public static JSONObject getToken(String corpId, String corpSecret) {
         Map<String, String> map = new HashMap<>(16);
-        map.put("corpid", corpId);
-        map.put("corpsecret", corpSecret);
-        return JSONObject.parseObject(HttpUtil.get(QyAPIUrl.GET_TOKEN_URL, map));
+        map.put(CORP_ID, corpId);
+        map.put(CORPSE_CRET, corpSecret);
+        String result = HttpUtil.get(QyAPIUrl.GET_TOKEN_URL, map);
+        logger.info("获取access_token ： " + result);
+        return JSONObject.parseObject(result);
     }
 
 
     public static void main(String[] args) {
-        JSONObject token = getToken(QyWorkConfig.CORP_ID, QyWorkConfig.MAIL_LIST_SECRET);
-        System.out.println(token);
+        JSONObject token = getToken(QyWorkConfig.CORP_ID, QyWorkConfig.ORDER_SECRET);
     }
 }

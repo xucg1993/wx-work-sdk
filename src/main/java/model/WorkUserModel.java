@@ -2,7 +2,6 @@ package model;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
-import util.string.StringUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +12,7 @@ import java.util.Map;
  * @author xuchenguang
  * @since 2018.05.29
  */
-public class User extends Common {
+public class WorkUserModel extends Common {
 
 
     /**
@@ -218,7 +217,7 @@ public class User extends Common {
     }
 
 
-    public static String getMap(User user) {
+    public static String getMap(WorkUserModel user) {
         Map<String, Object> data = new HashMap<>(16);
         if (StringUtils.isNotBlank(user.getUserId())) {
             data.put("userid", user.getUserId());
