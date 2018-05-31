@@ -25,8 +25,8 @@ public class WxDepartment extends WxBase {
      */
     public static JSONObject list(String accessToken, String id) {
         Map<String, String> data = new HashMap<>(16);
-        data.put("access_token", accessToken);
-        data.put("id", id);
+        data.put(ACCESS_TOKEN, accessToken);
+        data.put(Id, id);
         String result = HttpUtil.get(QyAPIUrl.DEPARTMENT_LIST_URL, data);
         logger.info("获取部门列表 ： " + result);
         return JSONObject.parseObject(result);

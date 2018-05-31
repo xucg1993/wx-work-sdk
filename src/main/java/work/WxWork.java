@@ -3,8 +3,6 @@ package work;
 import com.alibaba.fastjson.JSONObject;
 import config.QyAPIUrl;
 import config.QyWorkConfig;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import util.http.HttpUtil;
 
 import java.util.HashMap;
