@@ -35,6 +35,6 @@ public class WxWork extends WxBase {
 
 
     public static void main(String[] args) {
-        JSONObject token = getToken(QyWorkConfig.CORP_ID, QyWorkConfig.ORDER_SECRET);
+        getToken(QyWorkConfig.CORP_ID, QyWorkConfig.ORDER_SECRET);
     }
 }

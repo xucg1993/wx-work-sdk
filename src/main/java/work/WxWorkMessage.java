@@ -29,19 +29,14 @@ public class WxWorkMessage extends WxBase {
 
     public static void main(String[] args) {
 
-        String text = WorkMessageModel.getDescriptionByHighlight("收货人：傻逼小鸡")
-                + WorkMessageModel.getDescriptionByHighlight("手机号：15082985491")
-                + WorkMessageModel.getDescriptionByHighlight("收货地址：河南省商丘市梁园区")
-                + WorkMessageModel.getDescriptionByHighlight("商品详情：xxx商品 x 2")
-                + WorkMessageModel.getDescriptionByHighlight("订单金额：15元")
-                + WorkMessageModel.getDescriptionByHighlight("订单编号：201805301239891200001");
+        String text = WorkMessageModel.getDescriptionByHighlight("小鸡巴，明天在家等着朕御驾亲临");
 
         WorkMessageModel model = new WorkMessageModel();
-        model.setAccessToken("CWNCYds-G66nt0SIfLQBFLG_zoF4Nf_Y885KLu0qQ8qDkT6ElrZY-uS-ChJknBLTvHnwp5D2D15KkHBvO8Rwb0AZAyXvAAeaT7hdsRO8eeah0SwyCUPqqAFO2lbF5wfdhxyCWGQd4jDjRij9XTC9XZWRE3o14GeD2r-NnyOu4jFnd1DUENocUy9eyhTwXNCvvbSt22e4sQK1r_CS0QyNdQ");
+        model.setAccessToken("GkkltlwkJvLI5iVRcG2bnLYQkL2zCyyeJyDRf8sahXEMj_AcKtZ2nZjg_05Ndudn142RotxMVq_yGxUkpqT3mqoaUDLYai4b5i1cCouoA1GwTr9klGsxyt2nIygRuKvCWCSZesRxtGsYZ-ygP3NPlyISZYyAdcZFnptyrWYlRg5pTyJT5kxJbeqVQ1VpplpF7Duiu7id85xXIxadZpTZMQ");
         model.setTouser("darksky");
         model.setMsgtype("textcard");
         model.setAgentid(1000002);
-        model.setTitle("您有新的订单，请注意查收");
+        model.setTitle("圣旨到，方爱卿接旨");
         model.setDescription(text);
         model.setUrl("https://www.baidu.com");
         model.setBtntxt("打开");

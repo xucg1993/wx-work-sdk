@@ -143,11 +143,10 @@ public class WxWorkMember extends WxBase {
 //        user.setMobile("17600381103");
 //        user.setDepartment(new Integer[]{2});
 //        create(user);
-        String s = "k6JgurIfdQ7U-XQ7oPZC-4nd1kuMa59Nqe-XrvPgRV5onOavm5e66QeA6OpsF8Dm2j90p4DGzwZqUR_1iYsDjLqfEWrbZnGWg4kogkMS4m6oOTqYBiA2Yi-dUWsptQmjsQs7FiV5g4g5XPg6AtuTV9WfyXzf73UjdDkvWC6iQJ3VrIGjuHY0kX_gSjJngApb2fSB2mR29ntcOMXx3_ICYQ";
+        String s = "cPw9glnU0TXk0RIPthqRe5SHiHngdIuwH0h4qUIkUyoKQicnWyddsZlBcQC9wwk5ykjtpqrsZkasMI3YfiNVh8FMZRB8QOolXGg3ECpOjsP4ONRkmUrF079eLloHnbokif64aqqUGJEKwWroPruifkgOOogaBTjzvFMTm7VAWb48G-bohBJwFBjGCCH1SP0ve7dNL_5C9fyu_65zIlZTYA";
 
 //        JSONObject user = get(s, "123");
-        JSONObject jsonObject = userListInfo(s, "1", null);
-        System.out.println(jsonObject);
+        get(s, "XuChenGuang");
 
     }
 }
