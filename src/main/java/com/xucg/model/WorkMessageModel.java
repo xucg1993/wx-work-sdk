@@ -3,7 +3,9 @@ package com.xucg.model;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -51,9 +53,32 @@ public class WorkMessageModel extends Common {
     private String btntxt;
 
     /**
+     *
+     */
+    private Map<String, Object> miniprogram_notice;
+
+    /**
+     * 小程序appid，必须是与当前小程序应用关联的小程序
+     */
+    private String appid;
+    /**
+     * 点击消息卡片后的小程序页面，仅限本小程序内的页面。该字段不填则消息点击后不跳转
+     */
+    private String page;
+    /**
+     * 是否放大第一个content_item
+     */
+    private Boolean emphasis_first_item = new Boolean(false);
+    /**
+     * 消息内容键值对，最多允许10个item
+     */
+    private List content_item;
+
+
+    /**
      * 消息
      */
-    private Map<String, String> textcard;
+    private Map<String, Object> textcard;
 
     public String getTouser() {
         return touser;
@@ -127,12 +152,52 @@ public class WorkMessageModel extends Common {
         this.btntxt = btntxt;
     }
 
-    public Map<String, String> getTextcard() {
+    public Map<String, Object> getTextcard() {
         return textcard;
     }
 
-    public void setTextcard(Map<String, String> textcard) {
+    public void setTextcard(Map<String, Object> textcard) {
         this.textcard = textcard;
+    }
+
+    public Map<String, Object> getMiniprogram_notice() {
+        return miniprogram_notice;
+    }
+
+    public void setMiniprogram_notice(Map<String, Object> miniprogram_notice) {
+        this.miniprogram_notice = miniprogram_notice;
+    }
+
+    public String getAppid() {
+        return appid;
+    }
+
+    public void setAppid(String appid) {
+        this.appid = appid;
+    }
+
+    public String getPage() {
+        return page;
+    }
+
+    public void setPage(String page) {
+        this.page = page;
+    }
+
+    public Boolean getEmphasis_first_item() {
+        return emphasis_first_item;
+    }
+
+    public void setEmphasis_first_item(Boolean emphasis_first_item) {
+        this.emphasis_first_item = emphasis_first_item;
+    }
+
+    public List getContent_item() {
+        return content_item;
+    }
+
+    public void setContent_item(List content_item) {
+        this.content_item = content_item;
     }
 
     /**
@@ -165,13 +230,16 @@ public class WorkMessageModel extends Common {
         if (model.getTextcard() != null) {
             data.put("textcard", model.getTextcard());
         }
+        if (model.getMiniprogram_notice() != null) {
+            data.put("miniprogram_notice", model.getMiniprogram_notice());
+        }
 
         return JSONObject.toJSONString(data);
     }
 
 
-    public static Map<String, String> getMessageToMap(WorkMessageModel model) {
-        Map<String, String> data = new HashMap<>(16);
+    public static Map<String, Object> getMessageToMap(WorkMessageModel model) {
+        Map<String, Object> data = new HashMap<>(16);
 
         if (StringUtils.isNotBlank(model.getTitle())) {
             data.put("title", model.getTitle());
@@ -184,6 +252,20 @@ public class WorkMessageModel extends Common {
         }
         if (StringUtils.isNotBlank(model.getBtntxt())) {
             data.put("btntxt", model.getBtntxt());
+        }
+        if (StringUtils.isNotBlank(model.getAppid())) {
+            data.put("appid", model.getAppid());
+        }
+        if (StringUtils.isNotBlank(model.getPage())) {
+            data.put("page", model.getPage());
+        }
+        if (model.getEmphasis_first_item()) {
+            data.put("emphasis_first_item", model.getEmphasis_first_item());
+        }else {
+            data.put("emphasis_first_item", model.getEmphasis_first_item());
+        }
+        if (!model.getContent_item().isEmpty()) {
+            data.put("content_item", model.getContent_item());
         }
         return data;
     }
@@ -205,5 +287,30 @@ public class WorkMessageModel extends Common {
         StringBuffer buffer = new StringBuffer();
         buffer.append("<div class=\"highlight\">").append(text).append("</div>");
         return buffer.toString();
+    }
+
+
+    /**
+     * 封装消息内容键值对
+     * 小程序通知
+     *
+     * @param text
+     * @return
+     */
+    public static List<Map<String, String>> buildContentItem(String text) {
+
+        String[] split = text.split("\\|");
+
+        List<Map<String, String>> list = new ArrayList();
+
+        for (String s : split) {
+            String[] strings = s.split(",");
+            HashMap<String, String> map = new HashMap<>();
+            map.put("key", strings[0]);
+            map.put("value", strings[1]);
+            list.add(map);
+        }
+
+        return list;
     }
 }

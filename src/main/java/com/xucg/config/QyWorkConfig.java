@@ -17,6 +17,11 @@ public class QyWorkConfig {
     public static final String ORDER_SECRET = "PBWgf_qH_Pk6ir1CQkB3NbG0dq0W17b7x6r9P2sTXN4";
 
     /**
+     * 微信小程序
+     */
+    public static final String MINI_PROGRAM_SECRET = "TjAj1849SPH6HZV_ez8VCIXa3x1Tn-GROiu7wASNqvw";
+
+    /**
      * 通讯录凭证密钥
      */
     public static final String MAIL_LIST_SECRET = "-0FU2WaPgeV2OH9hJvMkwdfpp41nTPN4obBBTRaokk8";
