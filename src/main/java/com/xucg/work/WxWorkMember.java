@@ -40,7 +40,7 @@ public class WxWorkMember extends WxBase {
      * @return
      */
     public static JSONObject get(String accessToken, String userId) {
-        Map<String, String> data = new HashMap<>(16);
+        Map<String, Object> data = new HashMap<>(16);
         data.put(ACCESS_TOKEN, accessToken);
         data.put(USER_ID, userId);
         String result = HttpUtil.get(QyAPIUrl.USER_GET_URL, data);
@@ -68,7 +68,7 @@ public class WxWorkMember extends WxBase {
      * @return
      */
     public static JSONObject delete(String accessToken, String userId) {
-        Map<String, String> data = new HashMap<>(16);
+        Map<String, Object> data = new HashMap<>(16);
         data.put(ACCESS_TOKEN, accessToken);
         data.put(USER_ID, userId);
         String result = HttpUtil.get(QyAPIUrl.USER_DELETE_URL, data);
@@ -100,7 +100,7 @@ public class WxWorkMember extends WxBase {
      * @return
      */
     public static JSONObject simpleList(String accessToken, String departmentId, String fetchChild) {
-        Map<String, String> data = new HashMap<>(16);
+        Map<String, Object> data = new HashMap<>(16);
         data.put(ACCESS_TOKEN, accessToken);
         data.put(DEPARTMENT_ID, departmentId);
         if (StringUtils.isNotBlank(fetchChild)) {
@@ -122,7 +122,7 @@ public class WxWorkMember extends WxBase {
      * @return
      */
     public static JSONObject userListInfo(String accessToken, String departmentId, String fetchChild) {
-        Map<String, String> data = new HashMap<>(16);
+        Map<String, Object> data = new HashMap<>(16);
         data.put(ACCESS_TOKEN, accessToken);
         data.put(DEPARTMENT_ID, departmentId);
         if (StringUtils.isNotBlank(fetchChild)) {

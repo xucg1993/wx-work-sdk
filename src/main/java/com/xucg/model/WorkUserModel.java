@@ -49,7 +49,7 @@ public class WorkUserModel extends Common {
     /**
      * 性别
      */
-    private String gender;
+    private Integer gender;
     /**
      * 邮箱
      */
@@ -144,11 +144,11 @@ public class WorkUserModel extends Common {
         this.position = position;
     }
 
-    public String getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 

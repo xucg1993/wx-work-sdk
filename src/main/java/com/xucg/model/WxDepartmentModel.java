@@ -2,6 +2,7 @@ package com.xucg.model;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,15 +21,15 @@ public class WxDepartmentModel extends Common {
     /**
      * 父部门id
      */
-    private String parentId;
+    private Integer parentId;
     /**
      * 在父部门中的次序值
      */
-    private String order;
+    private Integer order;
     /**
      * 部门id
      */
-    private String id;
+    private Integer id;
 
     public String getName() {
         return name;
@@ -38,27 +39,27 @@ public class WxDepartmentModel extends Common {
         this.name = name;
     }
 
-    public String getParentId() {
+    public Integer getParentId() {
         return parentId;
     }
 
-    public void setParentId(String parentId) {
+    public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 
-    public String getOrder() {
+    public Integer getOrder() {
         return order;
     }
 
-    public void setOrder(String order) {
+    public void setOrder(Integer order) {
         this.order = order;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -67,17 +68,17 @@ public class WxDepartmentModel extends Common {
      * @return
      */
     public static String getMap(WxDepartmentModel model) {
-        Map<String, String> data = new HashMap<>(16);
+        Map<String, Object> data = new HashMap<>(16);
         if (StringUtils.isNotBlank(model.getName())) {
             data.put("name", model.getName());
         }
-        if (StringUtils.isNotBlank(model.getParentId())) {
+        if (model.getParentId() != null) {
             data.put("parentid", model.getParentId());
         }
-        if (StringUtils.isNotBlank(model.getOrder())) {
+        if (model.getOrder() != null) {
             data.put("order", model.getOrder());
         }
-        if (StringUtils.isNotBlank(model.getId())) {
+        if (model.getId() != null) {
             data.put("id", model.getId());
         }
         return JSONObject.toJSONString(data);

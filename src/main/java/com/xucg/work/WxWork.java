@@ -25,7 +25,7 @@ public class WxWork extends WxBase {
      * @return
      */
     public static JSONObject getToken(String corpId, String corpSecret) {
-        Map<String, String> map = new HashMap<>(16);
+        Map<String, Object> map = new HashMap<>(16);
         map.put(CORP_ID, corpId);
         map.put(CORPSE_CRET, corpSecret);
         String result = HttpUtil.get(QyAPIUrl.GET_TOKEN_URL, map);

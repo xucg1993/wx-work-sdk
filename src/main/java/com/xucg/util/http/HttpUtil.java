@@ -60,7 +60,7 @@ public class HttpUtil {
         return null;
     }
 
-    public static String post(String url, Map<String, String> paramMap) {
+    public static String post(String url, Map<String, Object> paramMap) {
         PostMethod method = buildPostMethod(url, paramMap);
         return post(method);
     }
@@ -100,7 +100,7 @@ public class HttpUtil {
         return sb.toString();
     }
 
-    private static PostMethod buildPostMethod(String url, Map<String, String> paramMap) {
+    private static PostMethod buildPostMethod(String url, Map<String, Object> paramMap) {
         PostMethod method = new PostMethod(url);
         NameValuePair[] pairs = new NameValuePair[paramMap.size()];
         int i = 0;
@@ -126,10 +126,10 @@ public class HttpUtil {
     }
 
     public static String get(String url) {
-        return get(url, new HashMap<String, String>());
+        return get(url, new HashMap<String, Object>());
     }
 
-    public static String get(String url, Map<String, String> map) {
+    public static String get(String url, Map<String, Object> map) {
 
         HttpClient client = new HttpClient();
         HttpMethod method = buildGetMethod(url, map);
@@ -161,7 +161,7 @@ public class HttpUtil {
         return sb.toString();
     }
 
-    private static GetMethod buildGetMethod(String url, Map<String, String> paramMap) {
+    private static GetMethod buildGetMethod(String url, Map<String, java.lang.Object> paramMap) {
         GetMethod method = new GetMethod(url);
         NameValuePair[] pairs = new NameValuePair[paramMap.size()];
         int i = 0;

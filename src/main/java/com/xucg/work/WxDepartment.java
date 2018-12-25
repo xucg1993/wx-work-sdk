@@ -23,8 +23,8 @@ public class WxDepartment extends WxBase {
      * @param id
      * @return
      */
-    public static JSONObject list(String accessToken, String id) {
-        Map<String, String> data = new HashMap<>(16);
+    public static JSONObject list(String accessToken, Integer id) {
+        Map<String, Object> data = new HashMap<>(16);
         data.put(ACCESS_TOKEN, accessToken);
         data.put(Id, id);
         String result = HttpUtil.get(QyAPIUrl.DEPARTMENT_LIST_URL, data);
@@ -65,8 +65,8 @@ public class WxDepartment extends WxBase {
      * @param id
      * @return
      */
-    public static JSONObject delete(String accessToken, String id) {
-        Map<String, String> data = new HashMap<>(16);
+    public static JSONObject delete(String accessToken, Integer id) {
+        Map<String, Object> data = new HashMap<>(16);
         data.put(ACCESS_TOKEN, accessToken);
         data.put(Id, id);
         String result = HttpUtil.post(QyAPIUrl.DEPARTMENT_DELETE_URL, data);
