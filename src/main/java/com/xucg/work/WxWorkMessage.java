@@ -5,10 +5,8 @@ import com.xucg.config.QyAPIUrl;
 import com.xucg.model.WorkMessageModel;
 import com.xucg.util.http.HttpUtil;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 消息推送
@@ -64,13 +62,11 @@ public class WxWorkMessage extends WxBase {
         model.setTouser("darksky|XuChenGuang");
         model.setMsgtype("miniprogram_notice");
         model.setAppid("wx6517d517c844dd15");
-        model.setPage("/pages/index/index");
-        model.setEmphasis_first_item(true);
-        model.setTitle("测试小程序通知");
-        model.setDescription("12月25日 16:16");
-        model.setContent_item(WorkMessageModel.buildContentItem("会议室,402|会议地点,广州TIT-402会议室|会议时间,2018年8月1日 09:00-09:30|参与人员,方伟金、徐晨光"));
+        model.setPage("/pages/bissness/bissness");
+        model.setTitle("用户拼团下单通知");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        model.setDescription(dateFormat.format(new Date()));
+        model.setContent_item(WorkMessageModel.buildContentItem("用户名称,徐晨光|订单金额,100元|商品,XX洗衣液 * 1|收货地址,河南省商丘市睢阳区天明第一城"));
         miniProgramNotice(model);
     }
-
-
 }

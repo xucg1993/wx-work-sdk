@@ -270,7 +270,9 @@ public class WorkMessageModel extends Common {
         return data;
     }
 
-
+    /**
+     *
+     */
     public static String getDescriptionByNormal(String text) {
         StringBuffer buffer = new StringBuffer();
         buffer.append("<div class=\"normal\">").append(text).append("</div>");
